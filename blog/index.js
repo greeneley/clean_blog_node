@@ -5,6 +5,8 @@ const ejs = require('ejs')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const BlogPost = require('./models/BlogPost.js')
+const fileUpload = require('express-fileupload')
+app.use(fileUpload())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -42,6 +44,20 @@ app.get('/post/:id', (req, res) => {
     BlogPost.findById(req.params.id, function (error, detailPost) {
         res.render('post', {
             detailPost
+        })
+    })
+})
+
+app.post('/posts/store', (req,res) => {
+    let image = req.files.image;
+    image.mv(path.resolve(__dirname, 'public/upload', image.name), function(err){
+        BlogPost.create(req.body, (error, blogpost) =>{
+            BlogPost.create({
+                ...req.body,
+                image: '/upload/' + image.name
+            }, function(err){
+                res.redirect('/')
+            })
         })
     })
 })
