@@ -6,6 +6,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const BlogPost = require('./models/BlogPost.js')
 const fileUpload = require('express-fileupload')
+const newPostController = require('./controllers/newPost')
+const homeController = require('./controllers/home')
+const storePostController = require('./controllers/storePost')
+const getPostController = require('./controllers/getPost')
+const validateMiddleware = require("./middleware/validationMiddleware");
+
 app.use(fileUpload())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -19,14 +25,7 @@ app.listen(4000, () => {
     console.log('App listening on port 4000')
 })
 
-app.get('/', (request, response) => {
-    BlogPost.find({}, function (error, posts) {
-        console.log(posts);
-        response.render('index', {
-            blogposts: posts
-        })
-    })
-})
+app.get('/', homeController)
 
 app.get('/about', (req, res) => {
     res.render('about');
@@ -40,34 +39,15 @@ app.get('/post', (req, res) => {
     res.render('post')
 })
 
-app.get('/post/:id', (req, res) => {
-    BlogPost.findById(req.params.id, function (error, detailPost) {
-        res.render('post', {
-            detailPost
-        })
-    })
-})
+app.get('/post/:id', getPostController)
 
-app.post('/posts/store', (req,res) => {
-    let image = req.files.image;
-    image.mv(path.resolve(__dirname, 'public/upload', image.name), function(err){
-        BlogPost.create(req.body, (error, blogpost) =>{
-            BlogPost.create({
-                ...req.body,
-                image: '/upload/' + image.name
-            }, function(err){
-                res.redirect('/')
-            })
-        })
-    })
-})
-app.get('/posts/new', (req, res) => {
-    res.render('create')
-})
+app.post('/posts/store', storePostController)
+
+app.get('/posts/new',newPostController)
+
+app.use('/posts/new', validateMiddleware);
 
 app.post('/posts/store', (req, res) => {
-    console.log(req.body)
-    // res.redirect('/')
     BlogPost.create(req.body, (error, blogpost) => {
         res.redirect('/')
     })
