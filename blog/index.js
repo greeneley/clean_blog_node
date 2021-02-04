@@ -13,7 +13,8 @@ const getPostController = require('./controllers/getPost')
 const validateMiddleware = require("./middleware/validationMiddleware");
 const newUserController = require("./controllers/newUser");
 const storeUserController = require("./controllers/storeUser");
-
+const loginController = require('./controllers/login');
+const loginUserController = require('./controllers/loginUser')
 
 app.use(fileUpload())
 app.use(bodyParser.json())
@@ -61,3 +62,6 @@ app.post('/posts/store', (req, res) => {
         res.redirect('/')
     })
 })
+
+app.get('/auth/login', loginController)
+app.post('/users/login', loginUserController)
