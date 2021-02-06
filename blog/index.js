@@ -15,6 +15,19 @@ const newUserController = require("./controllers/newUser");
 const storeUserController = require("./controllers/storeUser");
 const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser')
+const expressSession = require('express-session')
+const authMiddleware = require('./middleware/authMiddleware')
+const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
+const logoutController = require('./controllers/logout')
+
+app.use(expressSession({
+    secret: 'keyboar dcat'
+}))
+global.loggedIn = null;
+app.use("*", (req, res, next) => {
+    loggedIn = req.session.userId;
+    next()
+})
 
 app.use(fileUpload())
 app.use(bodyParser.json())
@@ -45,23 +58,21 @@ app.get('/post', (req, res) => {
 
 app.get('/post/:id', getPostController)
 
-app.post('/posts/store', storePostController)
+app.post('/posts/store', authMiddleware, storePostController)
 
-app.get('/posts/new',newPostController)
+app.get('/posts/new', authMiddleware, newPostController)
 
 app.use('/posts/new', validateMiddleware);
 
-app.get('/auth/register', newUserController);
+app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 
-// const storeUserController = require('./controllers/storeUser')
-// app.post('/users/register', storeUserController)
-
-app.post('/users/register', storeUserController)
+app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController)
 app.post('/posts/store', (req, res) => {
     BlogPost.create(req.body, (error, blogpost) => {
         res.redirect('/')
     })
 })
-
-app.get('/auth/login', loginController)
-app.post('/users/login', loginUserController)
+app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController)
+app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController)
+app.get('/auth/logout', logoutController)
+app.use((req,res) => res.render('notfound'))    
