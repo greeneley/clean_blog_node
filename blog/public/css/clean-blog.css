@@ -35,7 +35,7 @@ a {
 }
 
 a:focus, a:hover {
-  color: #0085A1;
+  color: teal;
 }
 
 blockquote {
@@ -62,13 +62,13 @@ blockquote {
 
 ::-moz-selection {
   color: #fff;
-  background: #0085A1;
+  background: teal;
   text-shadow: none;
 }
 
 ::selection {
   color: #fff;
-  background: #0085A1;
+  background: teal;
   text-shadow: none;
 }
 
@@ -155,13 +155,13 @@ img::-moz-selection {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-    color: #0085A1;
+    color: teal;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: #0085A1;
+    color: teal;
   }
   #mainNav.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -171,8 +171,8 @@ img::-moz-selection {
 
 header.masthead {
   margin-bottom: 50px;
-  background: no-repeat center center;
-  background-color: #868e96;
+  background: no-repeat top center;
+  background-color: teal;
   background-attachment: scroll;
   position: relative;
   background-size: cover;
@@ -183,7 +183,7 @@ header.masthead .overlay {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
+  width: 100%; 
   background-color: #212529;
   opacity: 0.5;
 }
@@ -194,6 +194,8 @@ header.masthead .site-heading {
   padding: 200px 0 150px;
   color: white;
 }
+
+
 
 @media only screen and (min-width: 768px) {
   header.masthead .page-heading,
@@ -274,7 +276,7 @@ header.masthead .post-heading .meta a {
 
 .post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
-  color: #0085A1;
+  color: teal;
 }
 
 .post-preview > a > .post-title {
@@ -302,7 +304,7 @@ header.masthead .post-heading .meta a {
 
 .post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
   text-decoration: underline;
-  color: #0085A1;
+  color: teal;
 }
 
 @media only screen and (min-width: 768px) {
@@ -361,7 +363,7 @@ header.masthead .post-heading .meta a {
 }
 
 .floating-label-form-group-with-focus label {
-  color: #0085A1;
+  color: teal;
 }
 
 form .form-group:first-child .floating-label-form-group {
@@ -394,8 +396,8 @@ footer .copyright {
 }
 
 .btn-primary {
-  background-color: #0085A1;
-  border-color: #0085A1;
+  background-color: teal;
+  border-color: teal;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
