@@ -6,22 +6,43 @@
   <%- include('layouts/navbar'); -%>
   <!-- Page Header -->
   <header class="masthead" style="width: auto;height: 67px;color:red">
-    <!-- <div class="overlay"></div> -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </header>
 
   <!-- Main Content -->
+
   <div class="container">
-    <div class="row">
+    <div class="container-left">
+      <div id="e1_37"></div>
+      <div id="e1_15">
+        <div id="e1_4"></div>
+      </div>
+      <div id="e1_13"></div>
+      <div id="e1_21">
+        <!-- <div id="logo"></div> -->
+        <img id="e1_23" src="/img/logo.png">
+      </div>
+      <span class="align-top" id="e1_24">Đinh Thanh Hải</span>
+      <!-- <div id="e1_26"></div> -->
+      <div id="e1_32">
+      <a>Blog này được xây dựng với 3 mục tiêu chính:</a>
+      <ul>
+        <li>Nơi lưu trữ các kiến thức của chính bản thân trong quá trình học tập và làm việc</li>
+        <li>Chia sẻ các kinh nghiệm liên quan đến lĩnh vực Trí Tuệ Nhân Tạo (AI)</li>
+        <li>Kiến thức toán học, lời giải hay - nền tảng của AI và cũng là niềm đam mê của tôi</li>
+      </ul>
+      </div>
+      <div id="e1_41">
+        <div id="e1_42">
+          <div id="e1_43"></div>
+        </div>
+      </div>
+      <div id="e1_59">
+        <div id="e1_60"></div>
+      </div>
+    </div>
+
+    <div class="container-right">
       <div class="col-lg-8 col-md-10 mx-auto">
         <% for (var i = 0; i < blogposts.length; i++) { %>
         <div class="post-preview">
@@ -45,9 +66,6 @@
       </div>
     </div>
   </div>
-
-  <hr>
-  <%- include('layouts/footer'); -%>
   <%- include('layouts/scripts'); -%>
 
 </body>
