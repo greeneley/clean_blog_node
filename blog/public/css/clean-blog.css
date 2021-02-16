@@ -91,13 +91,26 @@ img::-moz-selection {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
   background-color: white;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Space Mono', monospace;
+}
+
+#mainNav .nav-link{
+  font-family: 'Space Mono', monospace;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #mainNav .navbar-brand {
   font-weight: 800;
   color: #343a40;
 }
+
 
 #mainNav .navbar-toggler {
   font-size: 12px;
@@ -410,3 +423,5 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+
+#
