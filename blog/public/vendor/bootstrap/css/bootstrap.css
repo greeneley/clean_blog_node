@@ -4225,6 +4225,7 @@ input[type="button"].btn-block {
 }
 
 .nav-link {
+  font-style: italic;
   display: block;
   padding: 0.5rem 1rem;
 }
