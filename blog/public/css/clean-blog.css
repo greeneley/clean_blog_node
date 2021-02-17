@@ -292,11 +292,14 @@ header.masthead .post-heading .meta a {
 
 .post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
-  color: teal;
+  color: #4CB0AF;
 }
 
 .post-preview > a > .post-title {
-  font-size: 30px;
+  font-family: 'Space Mono', monospace;
+  /* font-style: normal; */
+  font-size: 12px;
+  font-weight: bold;
   margin-top: 30px;
   margin-bottom: 10px;
 }
@@ -307,6 +310,7 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > .post-meta {
+  font-family: 'Space Mono', monospace;
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
@@ -325,7 +329,7 @@ header.masthead .post-heading .meta a {
 
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
-    font-size: 36px;
+    font-size: 24px;
   }
 }
 
@@ -439,23 +443,16 @@ footer .copyright {
   width: 75%;
   padding: 10px;
 }
-#logo, #e1_23, #e1_24, #e1_26, #e1_32, #e1_30 {
+#logo, #author, #description {
   display: inline-block;
 }
-#logo { 
-	opacity:1;
-	width:164px;
-	height:164px;
-	position:relative;
-	background-image:url(/img/logo.png);
-	background-repeat:no-repeat;
-	background-size:cover;
-}
-#e1_23{
+
+#logo{
   position:relative;
   margin: auto;
+  text-align: center;
 }
-#e1_24 { 
+#author { 
 	color:rgba(0, 0, 0, 1);
 	opacity:1;
 	width:164px;
@@ -469,35 +466,11 @@ footer .copyright {
 }
 
 
-#e1_26 { 
+#description { 
 	transform: rotate(1.5497010963275196e-8deg);
 	opacity:1;
-	border:1px solid rgba(229.00000154972076, 229.00000154972076, 229.00000154972076, 1);
-	width:215px;
-	height:0px;
-	position:relative;
-
-}
-
-#e1_32 { 
-	transform: rotate(1.5497010963275196e-8deg);
-	opacity:1;
-	border:1px solid rgba(229.00000154972076, 229.00000154972076, 229.00000154972076, 1);
-	width:215px;
-	height:0px;
 	position:relative;
   font-family: 'Space Mono', monospace;
   font-size: 14px;
+  text-align: justify;
 }
-#e1_30 { 
-	color:rgba(0, 0, 0, 1);
-	opacity:1;
-	width:352px;
-	height:84px;
-	position:relative;
-	text-align:right;
-	font-size:12px;
-	letter-spacing:0;
-	line-height:undefined;
-}
-
