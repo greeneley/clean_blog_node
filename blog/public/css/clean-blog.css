@@ -127,6 +127,9 @@ img::-moz-selection {
   text-transform: uppercase;
 }
 
+
+
+
 @media only screen and (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
@@ -148,42 +151,10 @@ img::-moz-selection {
   }
 }
 
-@media only screen and (min-width: 992px) {
-  #mainNav {
-    transition: background-color 0.2s;
-    /* Force Hardware Acceleration in WebKit */
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  #mainNav.is-fixed {
-    /* when the user scrolls down, we hide the header right above the viewport */
-    position: fixed;
-    top: -67px;
-    transition: transform 0.2s;
-    border-bottom: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  #mainNav.is-fixed .navbar-brand {
-    color: #212529;
-  }
-  #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-    color: teal;
-  }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
-    color: #212529;
-  }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: teal;
-  }
-  #mainNav.is-visible {
-    /* if the user changes the scrolling direction, we show the header */
-    transform: translate3d(0, 100%, 0);
-  }
-}
 
 header.masthead {
   margin-bottom: 50px;
+  height: 64px;
   background: no-repeat top center;
   background-color: teal;
   background-attachment: scroll;
@@ -289,11 +260,14 @@ header.masthead .post-heading .meta a {
 
 .post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
-  color: teal;
+  color: #4CB0AF;
 }
 
 .post-preview > a > .post-title {
-  font-size: 30px;
+  font-family: 'Space Mono', monospace;
+  /* font-style: normal; */
+  font-size: 12px;
+  font-weight: bold;
   margin-top: 30px;
   margin-bottom: 10px;
 }
@@ -304,6 +278,7 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > .post-meta {
+  font-family: 'Space Mono', monospace;
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
@@ -322,7 +297,7 @@ header.masthead .post-heading .meta a {
 
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
-    font-size: 36px;
+    font-size: 24px;
   }
 }
 
@@ -423,5 +398,55 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+.container-left, .container-right{
+  display: inline-block;
+}
+.container-left {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+.container-right {
+  float: left;
+  width: 75%;
+  padding: 10px;
+}
+#logo, #author, #description, #contact {
+  display: inline-block;
+}
 
-#
+#logo{
+  position:relative;
+  margin: auto;
+  text-align: center;
+}
+#author { 
+	color:rgba(0, 0, 0, 1);
+	opacity:1;
+	width:164px;
+	height:25px;
+	position:relative;
+  font-family: 'Space Mono', monospace;
+	text-align:right;
+	font-size:18px;
+	letter-spacing:0;
+	line-height:undefined;
+}
+
+
+#description { 
+	transform: rotate(1.5497010963275196e-8deg);
+	opacity:1;
+	position:relative;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  text-align: justify;
+}
+
+#contact {
+  position:relative;
+  margin: auto;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  text-align:justify;
+}
